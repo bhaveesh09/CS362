@@ -1,56 +1,36 @@
+from programs import palindrome
+from wordCount import wordCount
 import unittest
 
-def add(a,b):
-    return a + b
-
-def subtract(a,b):
-    return a - b
-
-def multiply(a,b):
-    return a*b
-
-def divsion(a,b):
-    return a / b
-
-class testCaseAdd(unittest.TestCase):
-    def test_add(self):
-        sum= add(10, 5)
-        self.assertEqual(sum, 15)
+class testPalindrome(unittest.TestCase):
+    def test_palidrome(self):
+        case = palindrome("WOW")
+        self.assertEqual(case, True)
     
-    def test_add2(self):
-        sum= add(-5.000000000000000000000001, 5)
-        self.assertEqual(sum, -.000000000000000000000001)
+    def test_palidrome2(self):
+        case = palindrome("NOT A PALINDROME")
+        self.assertEqual(case, False)
+    
+    def test_palidrome3(self):
+        case = palindrome("")
+        self.assertEqual(case, False)
+
+class testWordCount(unittest.TestCase):
+    def test_wordCount(self):
+        case = wordCount("THERE ARE FOUR WORDS")
+        self.assertEqual(case, 4)
+
+    def test_wordCount2(self):
+        case = wordCount("There are 4 words")
+        self.assertEqual(case, 4)
+
+    def test_wordCount3(self):
+        case = wordCount('')
+        self.assertEqual(case, 0)
 
     
-class testCaseSub(unittest.TestCase):
-    def test_sub(self):
-       sub= subtract(10, 5)
-       self.assertEqual(sub, 5) 
-    def test_sub2(self):
-       sub= subtract(10, "5")
-       self.assertEqual(sub, 5)
 
-class testCaseMult(unittest.TestCase):
-    def test_mult(self):
-        mult = multiply(10, 2)
-        self.assertEqual(mult, 20)
-    def test_mult2(self):
-        mult= multiply(10.10, 5)
-        self.assertEqual(mult, 50.50)
-    def test_mult3(self):
-        mult= multiply(-50000000000000, 3.2)
-        self.assertEqual(mult, -160000000000000)
-    
-class testCaseDiv(unittest.TestCase):
-    def test_div(self):
-        div = divsion(5.0, 4)
-        self.assertEqual(div, 1.25)
-    def test_div2(self):
-        div = divsion(10, 11)
-        self.assertEqual(div, .9091)
-   
+
 if __name__ == '__main__':
     unittest.main()
-    
-
 
